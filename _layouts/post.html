@@ -26,9 +26,5 @@ layout: default
     {{ content }}
   </div>
 
-  {%- if site.affiliate.taobao_pid or site.affiliate.jd_union_id or site.affiliate.amazon_tag -%}
-  <!-- 联盟推荐组件 - 在文章中使用 {% include affiliate-box.html product="产品名" taobao="淘宝链接" jd="京东链接" amazon="亚马逊链接" %} 调用 -->
-  {%- endif -%}
-
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
