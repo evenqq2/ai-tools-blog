@@ -1,0 +1,42 @@
+title: AI工具测评
+email: admin@even.us.kg
+description: >-
+  国内最专业的AI工具测评网站。ChatGPT、Claude、文心一言、通义千问、Kimi等
+  海内外AI工具深度横评、教程指南、使用技巧。
+baseurl: ""
+url: "https://www.even.us.kg"
+domain: "www.even.us.kg"
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# SEO
+google_analytics: ""
+google_adsense: ""
+
+# Pagination
+paginate: 10
+paginate_path: "/page:num/"
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "AI工具测评"
+      lang: zh-CN
+
+# Exclude
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - README.md
+  - scripts/
