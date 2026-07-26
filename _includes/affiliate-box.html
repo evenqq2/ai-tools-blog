@@ -1,0 +1,24 @@
+<!-- 联盟推荐盒子组件 -->
+<!-- 使用方法：{% include affiliate-box.html product="Cherry MX 红轴机械键盘" taobao="https://s.click.taobao.com/xxx" jd="https://union-click.jd.com/xxx" amazon="https://amzn.to/xxx" %} -->
+{%- assign taobao = include.taobao | default: "" -%}
+{%- assign jd = include.jd | default: "" -%}
+{%- assign amazon = include.amazon | default: "" -%}
+{%- assign product = include.product | default: "推荐产品" -%}
+
+{% if taobao or jd or amazon %}
+<div class="affiliate-box" style="border:1px solid #e5e7eb; border-radius:8px; padding:1.5rem; margin:2rem 0; background:#fafafa;">
+  <h4 style="margin:0 0 1rem; color:#1a1a1a;">🔗 相关推荐：{{ product }}</h4>
+  <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+    {% if taobao %}
+    <a href="{{ taobao }}" target="_blank" rel="nofollow noopener" style="background:#ff4400; color:white; padding:0.5rem 1rem; border-radius:4px; text-decoration:none; font-size:0.9rem;">淘宝购买</a>
+    {% endif %}
+    {% if jd %}
+    <a href="{{ jd }}" target="_blank" rel="nofollow noopener" style="background:#e6162d; color:white; padding:0.5rem 1rem; border-radius:4px; text-decoration:none; font-size:0.9rem;">京东购买</a>
+    {% endif %}
+    {% if amazon %}
+    <a href="{{ amazon }}" target="_blank" rel="nofollow noopener" style="background:#ff9900; color:white; padding:0.5rem 1rem; border-radius:4px; text-decoration:none; font-size:0.9rem;">Amazon 购买</a>
+    {% endif %}
+  </div>
+  <p style="margin:1rem 0 0; font-size:0.8rem; color:#999;">以上链接为联盟链接，购买可支持本站运营，不影响您的价格。</p>
+</div>
+{% endif %}

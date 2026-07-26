@@ -5,6 +5,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {%- seo -%}
+  {%- if site.google_adsense -%}
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.google_adsense }}" crossorigin="anonymous"></script>
+  {%- endif -%}
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ '/feed.xml' | relative_url }}">
 </head>
@@ -22,11 +25,41 @@
     </div>
   </header>
 
+  {%- if site.google_adsense -%}
+  <!-- 顶部横幅广告位 -->
+  <div class="ad-slot ad-top" style="text-align:center; padding:1rem 0;">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="{{ site.google_adsense }}"
+         data-ad-slot="YOUR_AD_SLOT_TOP"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+  {%- endif -%}
+
   <main class="page-content" aria-label="Content">
     <div class="wrapper">
       {{ content }}
     </div>
   </main>
+
+  {%- if site.google_adsense -%}
+  <!-- 底部广告位 -->
+  <div class="ad-slot ad-bottom" style="text-align:center; padding:1rem 0;">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="{{ site.google_adsense }}"
+         data-ad-slot="YOUR_AD_SLOT_BOTTOM"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+  {%- endif -%}
 
   <footer class="site-footer">
     <div class="wrapper">

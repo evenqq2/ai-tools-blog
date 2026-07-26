@@ -16,7 +16,13 @@ plugins:
 
 # SEO
 google_analytics: ""
-google_adsense: ""
+google_adsense: ""  # 格式：ca-pub-XXXXXXXXXXXXXXXX
+
+# 联盟营销配置
+affiliate:
+  taobao_pid: ""      # 淘宝联盟 PID
+  jd_union_id: ""     # 京东联盟 Union ID
+  amazon_tag: ""      # Amazon Associates Tag (如: yourtag-20)
 
 # Pagination
 paginate: 10
