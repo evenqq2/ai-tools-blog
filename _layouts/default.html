@@ -5,79 +5,87 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {%- seo -%}
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ '/feed.xml' | relative_url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   {%- if site.google_adsense -%}
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.google_adsense }}" crossorigin="anonymous"></script>
   {%- endif -%}
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ '/feed.xml' | relative_url }}">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
 </head>
 <body>
-
-  <nav class="nav">
-    <div class="nav-inner">
-      <a class="nav-logo" href="{{ '/' | relative_url }}">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:6px;">
-          <path d="M12 2L2 7v10l10 5 10-5V7z"/><path d="M12 2v20"/><path d="M2 7l10 5 10-5"/>
-        </svg>{{ site.title | escape }}
-      </a>
-      <ul class="nav-links">
-        <li><a href="{{ '/' | relative_url }}">首页</a></li>
-        <li><a href="{{ '/chat/' | relative_url }}">AI对话</a></li>
-        <li><a href="{{ '/coding/' | relative_url }}">AI编程</a></li>
-        <li><a href="{{ '/image/' | relative_url }}">AI绘图</a></li>
-        <li><a href="{{ '/video/' | relative_url }}">AI视频</a></li>
-        <li><a href="{{ '/tutorial/' | relative_url }}">新手教学</a></li>
-        <li><a href="{{ '/about/' | relative_url }}">关于</a></li>
-      </ul>
-      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+  <header class="site-header">
+    <div class="container">
+      <div class="header-content">
+        <a class="site-logo" href="{{ '/' | relative_url }}">
+          <span class="logo-text">AI工具测评</span>
+          <span class="logo-subtitle">专业AI模型基准测试平台</span>
+        </a>
+        <nav class="site-nav">
+          <ul>
+            <li><a href="{{ '/' | relative_url }}">首页</a></li>
+            <li><a href="{{ '/leaderboard/' | relative_url }}">排行榜</a></li>
+            <li><a href="{{ '/benchmarks/' | relative_url }}">基准测试</a></li>
+            <li><a href="{{ '/models/' | relative_url }}">模型库</a></li>
+            <li><a href="{{ '/about/' | relative_url }}">关于我们</a></li>
+          </ul>
+        </nav>
+        <button class="mobile-menu-toggle" aria-label="切换移动菜单">☰</button>
+      </div>
     </div>
-  </nav>
+  </header>
 
-  {%- if site.google_adsense -%}
-  <div style="text-align:center;padding:.5rem 0;background:var(--bg-secondary)">
-    <ins class="adsbygoogle" style="display:block" data-ad-client="{{ site.google_adsense }}" data-ad-slot="YOUR_AD_SLOT_TOP" data-ad-format="auto" data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-  </div>
-  {%- endif -%}
-
-  <main>
+  <main class="site-main">
     {{ content }}
   </main>
 
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-col">
-        <h4>AI工具测评</h4>
-        <p>深度测评海内外AI工具</p>
-      </div>
-      <div class="footer-col">
-        <h4>导航</h4>
-        <a href="{{ '/' | relative_url }}">首页</a>
-        <a href="{{ '/about/' | relative_url }}">关于</a>
-        <a href="{{ '/privacy/' | relative_url }}">隐私政策</a>
-        <a href="{{ '/contact/' | relative_url }}">联系我们</a>
-      </div>
-      <div class="footer-col">
-        <h4>分类</h4>
-        <a href="{{ '/chat/' | relative_url }}">AI对话</a>
-        <a href="{{ '/coding/' | relative_url }}">AI编程</a>
-        <a href="{{ '/image/' | relative_url }}">AI绘图</a>
-        <a href="{{ '/video/' | relative_url }}">AI视频</a>
-      </div>
-      <div class="footer-col">
-        <h4>教学</h4>
-        <a href="{{ '/tutorial/' | relative_url }}">新手教学</a>
-        <a href="{{ '/tutorial/beginner/' | relative_url }}">入门篇</a>
-        <a href="{{ '/tutorial/advanced/' | relative_url }}">进阶篇</a>
-        <a href="{{ '/tutorial/master/' | relative_url }}">大师篇</a>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <h4>AI工具测评</h4>
+          <p>专业的AI模型测评与基准测试平台，提供客观、全面的AI能力评估。</p>
+        </div>
+        <div class="footer-column">
+          <h4>快速链接</h4>
+          <ul>
+            <li><a href="{{ '/' | relative_url }}">首页</a></li>
+            <li><a href="{{ '/leaderboard/' | relative_url }}">排行榜</a></li>
+            <li><a href="{{ '/benchmarks/' | relative_url }}">基准测试</a></li>
+            <li><a href="{{ '/models/' | relative_url }}">模型库</a></li>
+            <li><a href="{{ '/about/' | relative_url }}">关于我们</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>联系我们</h4>
+          <p>邮箱: {{ site.email }}</p>
+          <p>合作与商务: {{ site.email }}</p>
+        </div>
+        <div class="footer-column">
+          <h4>声明</h4>
+          <p>本平台基于公开信息进行客观评测，不接受付费排名。</p>
+          <p>测试数据会定期更新，以确保准确性。</p>
+        </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }} · even.us.kg · <a href="/privacy/">隐私政策</a></p>
+        <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
-  <script src="{{ '/assets/js/app.js' | relative_url }}"></script>
+  <script>
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const toggle = document.querySelector('.mobile-menu-toggle');
+      const nav = document.querySelector('.site-nav');
+      if (toggle && nav) {
+        toggle.addEventListener('click', function() {
+          nav.classList.toggle('active');
+          toggle.classList.toggle('active');
+        });
+      }
+    });
+  </script>
 </body>
 </html>

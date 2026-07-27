@@ -1,8 +1,8 @@
+---
 title: AI工具测评
 email: admin@even.us.kg
 description: >-
-  国内最专业的AI工具测评网站。ChatGPT、Claude、文心一言、通义千问、Kimi等
-  海内外AI工具深度横评、教程指南、使用技巧。
+  专业的AI工具测评与基准测试平台。提供ChatGPT、Claude、Gemini、DeepSeek、Kimi等主流大模型的综合能力评测、价格对比、应用场景推荐。
 baseurl: ""
 url: "https://www.even.us.kg"
 domain: "www.even.us.kg"
@@ -13,20 +13,40 @@ theme: minima
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate-v2
 
 # SEO
 google_analytics: ""
-google_adsense: ""  # 格式：ca-pub-XXXXXXXXXXXXXXXX
+google_adsense: ""
 
-# 联盟营销配置
+# Affiliate
 affiliate:
-  taobao_pid: ""      # 淘宝联盟 PID
-  jd_union_id: ""     # 京东联盟 Union ID
-  amazon_tag: ""      # Amazon Associates Tag (如: yourtag-20)
+  taobao_pid: ""
+  jd_union_id: ""
+  amazon_tag: ""
 
 # Pagination
-paginate: 10
-paginate_path: "/page:num/"
+pagination:
+  enabled: true
+  per_page: 12
+  permalink: "/page/:num/"
+  title: ":title - 第 :num 页"
+  limit: 0
+  sort_field: "date"
+  sort_reverse: true
+  trail:
+    before: 2
+    after: 2
+
+# Collections
+collections:
+  benchmarks:
+    output: true
+    permalink: /benchmarks/:name/
+  models:
+    output: true
+    permalink: /models/:name/
 
 # Defaults
 defaults:
@@ -37,6 +57,17 @@ defaults:
       layout: "post"
       author: "AI工具测评"
       lang: zh-CN
+      reading_time: true
+  - scope:
+      path: ""
+      type: "benchmarks"
+    values:
+      layout: "benchmark"
+  - scope:
+      path: ""
+      type: "models"
+    values:
+      layout: "model"
 
 # Exclude
 exclude:
@@ -46,3 +77,29 @@ exclude:
   - vendor
   - README.md
   - scripts/
+  - generate_posts.py
+  - .github/
+  - CNAME
+  - LICENSE
+
+# Compress HTML
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  startings: []
+  blanklines: false
+  profile: false
+
+# Sass
+sass:
+  style: compressed
+
+# kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: true
